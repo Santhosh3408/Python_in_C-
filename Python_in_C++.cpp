@@ -4,8 +4,12 @@
 #include<chrono>
 #include<thread>
 #include<vector>
+#include<cstdlib>
+#include<ctime>
+#include<random>
 #define Row 15
 #define Col 25
+int foox,fooy;
 void control(std::vector<std::pair<int,int>> &snake,char dir){
     int x=snake[0].first,y=snake[0].second;
     if(dir=='w')
@@ -17,6 +21,11 @@ void control(std::vector<std::pair<int,int>> &snake,char dir){
     else if(dir=='d')
     y++;
     snake.insert(snake.begin(),{x,y});
+    if(x==foox && y==fooy){
+        foox=rand()%(Row-2)+1;
+        fooy=rand()%(Col-2)+1;
+    }
+    else
     snake.pop_back();
 }
 
@@ -37,7 +46,8 @@ for(int i=0;i<Row;i++){
         else 
                 {canvas[i][j]=' ';}}}
            for(auto p:snake){
-            canvas[p.first][p.second]='O';}}
+            canvas[p.first][p.second]='O';
+        }canvas[foox][fooy]='@';}
 
 void display(char canvas[Row][Col]){
     for(int i=0;i<Row;i++){
@@ -58,12 +68,13 @@ void game(char canvas[Row][Col],std::vector<std::pair<int,int>> &snake){
     system("cls");
   }
 }
-int main(){
+int main(){srand(time(0));
 std::vector<std::pair<int,int>> snake;
 snake.push_back({8,17});
 snake.push_back({8,16});
 snake.push_back({8,15});
 char canvas[Row][Col];
+ foox=rand()%(Row-2)+1;fooy=rand()%(Col-2)+1;
 game(canvas, snake);
 std::cout<<"GAME OVER!!!";
 return 0;}
