@@ -22,7 +22,7 @@ void control(std::vector<std::pair<int,int>> &snake,char dir){
 
 bool condition(std::vector<std::pair<int,int>> &snake){
       int x=snake[0].first,y=snake[0].second;
-if (x>=Row || x<=0 || y<=0 || y>=Col-1)
+if (x>=Row-1 || x<=0 || y<=0 || y>=Col-1)
 return true;
 return false;
 }
