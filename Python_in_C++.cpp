@@ -246,7 +246,7 @@ int main()
     std::cout << "Use WASD / Arrow Keys to control the Python.\n";
     std::cout << "Press Q to quit.\n\n";
 
-    std::cout << "Choose Difficulty:\n";
+    std::cout << "You're a...:\n";
     std::cout << "1) Beginner\n";
     std::cout << "2) Semi Professional\n";
     std::cout << "3) Professional\n";
@@ -258,7 +258,7 @@ int main()
         if(choice >= 1 && choice <= 3)
             break;
 
-        std::cout << "Invalid Choice! Enter again: ";
+        std::cout << "Invalid Choice! Enter again:(1-3)\n";
     }
 
     system("cls");
