@@ -229,9 +229,9 @@ void game(char canvas[Row][Col],
 }
 
 int main()
-{
+{   char again;
     srand(time(0));
-
+    while(true){
     std::vector<std::pair<int,int>> snake;
 
     snake.push_back({8,7});
@@ -266,7 +266,20 @@ int main()
     game(canvas, snake);
 
     std::cout << "Oh My God! Game Over!\n";
-    std::cout << "Score: " << score;
-
+    std::cout << "Score: " << score<<std::endl;
+    std::cout << "Press Y to try again or N to quit:\n";
+    std::cin  >> again;
+   
+    if(again == 'y' || again == 'Y')
+    {
+        system("cls");
+        continue;
+    }
+    else
+    {
+        std::cout << "Thank you for playing!\n";
+        break;
+    }
+    }
     return 0;
 }
